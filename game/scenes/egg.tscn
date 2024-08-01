@@ -6,3 +6,6 @@
 [node name="Egg" type="Node2D"]
 script = ExtResource("1_52j8u")
 stats = ExtResource("2_ddlxq")
+
+[node name="Hatchtimer" type="Timer" parent="."]
+one_shot = true
