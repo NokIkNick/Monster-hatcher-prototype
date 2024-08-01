@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://g224o3xgy4yg"]
+
+[ext_resource type="Script" path="res://scenes/egg.gd" id="1_52j8u"]
+[ext_resource type="Resource" uid="uid://pcsmjo5aao6m" path="res://resources/egg_stats.tres" id="2_ddlxq"]
+
+[node name="Egg" type="Node2D"]
+script = ExtResource("1_52j8u")
+stats = ExtResource("2_ddlxq")

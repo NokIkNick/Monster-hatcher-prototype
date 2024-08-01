@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EggStats" load_steps=2 format=3 uid="uid://pcsmjo5aao6m"]
+
+[ext_resource type="Script" path="res://scripts/egg_stats.gd" id="1_g8b1m"]
+
+[resource]
+script = ExtResource("1_g8b1m")
+health = 0
+rarity = 0
