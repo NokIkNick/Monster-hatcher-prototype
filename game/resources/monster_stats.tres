@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dutf15fkup3ic"]
+
+[ext_resource type="Script" path="res://scripts/monster_stats.gd" id="1_drrdd"]
+
+[resource]
+script = ExtResource("1_drrdd")

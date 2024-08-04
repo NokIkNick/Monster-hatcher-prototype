@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://g224o3xgy4yg"]
+[gd_scene load_steps=4 format=3 uid="uid://g224o3xgy4yg"]
 
 [ext_resource type="Script" path="res://scenes/egg.gd" id="1_52j8u"]
 [ext_resource type="Resource" uid="uid://pcsmjo5aao6m" path="res://resources/egg_stats.tres" id="2_ddlxq"]
+[ext_resource type="Texture2D" uid="uid://elnjqjo6sv4a" path="res://sprites/common_egg.png" id="3_1ayjf"]
 
 [node name="Egg" type="Node2D"]
 script = ExtResource("1_52j8u")
@@ -9,3 +10,8 @@ stats = ExtResource("2_ddlxq")
 
 [node name="Hatchtimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("3_1ayjf")
