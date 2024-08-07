@@ -5,19 +5,70 @@
 [ext_resource type="Resource" uid="uid://dutf15fkup3ic" path="res://resources/monster_stats.tres" id="2_v2b2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23low"]
-size = Vector2(23, 20)
+size = Vector2(79, 64)
 
 [node name="Pet" type="Area2D"]
-scale = Vector2(4, 4)
 script = ExtResource("1_g7e0f")
 stats = ExtResource("2_v2b2c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(4, 4)
 texture = ExtResource("2_q888l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(5.5, -2)
 shape = SubResource("RectangleShape2D_23low")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -38.0
+offset_top = -57.0
+offset_right = 49.0
+offset_bottom = -36.0
+
+[node name="nameLabel" type="Label" parent="Panel"]
+layout_mode = 1
+offset_right = 87.0
+offset_bottom = 23.0
+text = "name"
+horizontal_alignment = 1
+
+[node name="StatsPanel" type="Panel" parent="."]
+visible = false
+offset_left = 64.0
+offset_top = -80.0
+offset_right = 191.0
+offset_bottom = 82.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsPanel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 126.0
+offset_bottom = 160.0
+
+[node name="healthLabel" type="Label" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "HLT: "
+
+[node name="defenceLabel" type="Label" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "DEF: "
+
+[node name="attackLabel" type="Label" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "ATK: "
+
+[node name="specialAttackLabel" type="Label" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "SPA: "
+
+[node name="speedLabel" type="Label" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "SPD: "
+
+[node name="genderLabel" type="Label" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "GEN: "
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

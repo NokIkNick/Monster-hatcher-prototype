@@ -52,7 +52,6 @@ func hatch():
 	
 
 func format_timer_to_two_digits(time: float) -> String:
-	# Convert the float to an integer
 	var time_int = int(time)
 	var formatted_time = "%02d" % time_int
 	return formatted_time
