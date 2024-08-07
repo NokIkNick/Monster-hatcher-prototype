@@ -1,10 +1,14 @@
-extends Node2D
+extends Pickupable
 
 @export var stats: EggStats
 @onready var hatchtimer = $Hatchtimer
 @onready var isHatched = false
 @onready var hatching = false
-const Pet = preload("res://scenes/pet.gd")
+@onready var game = $".."
+@onready var timer_text = $Panel/TimerText
+
+
+const PET = preload("res://scenes/pet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +22,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	timer_text.text = format_timer_to_two_digits(hatchtimer.time_left)
+	
+	#from the pickupable class
+	updateLocation()
+	
 	if(hatching):
 		print(hatchtimer.time_left)
 	
@@ -35,5 +44,16 @@ func hatch():
 	print("hatched!")
 	hatching = false
 	isHatched = true
+	var obj = PET.instantiate()
+	obj.initalize(stats, self.position)
+	game.add_child(obj)
+	obj.position = self.position
 	get_tree().queue_delete(self)
-	Pet.new(stats, self.position)
+	
+
+func format_timer_to_two_digits(time: float) -> String:
+	# Convert the float to an integer
+	var time_int = int(time)
+	var formatted_time = "%02d" % time_int
+	return formatted_time
+

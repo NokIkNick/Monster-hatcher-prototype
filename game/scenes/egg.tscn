@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://g224o3xgy4yg"]
+[gd_scene load_steps=5 format=3 uid="uid://g224o3xgy4yg"]
 
 [ext_resource type="Script" path="res://scenes/egg.gd" id="1_52j8u"]
 [ext_resource type="Resource" uid="uid://pcsmjo5aao6m" path="res://resources/egg_stats.tres" id="2_ddlxq"]
 [ext_resource type="Texture2D" uid="uid://elnjqjo6sv4a" path="res://sprites/common_egg.png" id="3_1ayjf"]
 
-[node name="Egg" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ht63j"]
+radius = 31.0
+height = 86.0
+
+[node name="Egg" type="Area2D" groups=["pickupable"]]
 script = ExtResource("1_52j8u")
 stats = ExtResource("2_ddlxq")
 
@@ -15,3 +19,21 @@ one_shot = true
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("3_1ayjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ht63j")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -40.0
+offset_top = -69.0
+offset_right = 41.0
+offset_bottom = -47.0
+
+[node name="TimerText" type="Label" parent="Panel"]
+layout_mode = 1
+offset_right = 82.0
+offset_bottom = 23.0
+text = "Text"
+horizontal_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
