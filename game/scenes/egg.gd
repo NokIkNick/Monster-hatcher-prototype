@@ -1,5 +1,7 @@
 extends Pickupable
 
+class_name Egg
+
 @export var stats: EggStats
 @onready var hatchtimer = $Hatchtimer
 @onready var isHatched = false

@@ -20,14 +20,24 @@ func save():
 	save_file(Pets)
 
 func save_file(content):
-	var file = FileAccess.open("res://data/playersave.txt", FileAccess.WRITE)
+	var file = FileAccess.open("res://data/playerdata.json", FileAccess.WRITE)
 	var dataToSave = JSON.stringify(content)
 	file.store_string(dataToSave)
 	
 	
 
-func load_file() -> Dictionary:
-	var file = FileAccess.open("res://data/playersave.txt", FileAccess.READ)
+func load_file():
+	var file = FileAccess.open("res://data/playerdata.json", FileAccess.READ)
+	if(!file):
+		pass
+	
 	var content = file.get_as_text()
+	
+	if(!content):
+		pass
+	
 	var toReturn = JSON.parse_string(content)
+	if(toReturn == null):
+		pass
+
 	return toReturn

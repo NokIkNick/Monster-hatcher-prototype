@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://uo0dk8ebcxyy"]
+
+[ext_resource type="Script" path="res://scenes/EggHatcher.gd" id="1_6x70l"]
+[ext_resource type="Texture2D" uid="uid://dckhi6ngovox0" path="res://sprites/smølfer.png" id="2_i8hmx"]
+
+[node name="EggHatcher" type="Node2D"]
+position = Vector2(392, -159)
+script = ExtResource("1_6x70l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_i8hmx")
+
+[node name="BuyEggButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "BUY EGG"
