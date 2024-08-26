@@ -1,7 +1,7 @@
 extends Node
 
 var Pets = {}
-
+var petThatIsBeingHeld: Pickupable
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +10,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if(petThatIsBeingHeld):
+		print(petThatIsBeingHeld.name)
+		print(petThatIsBeingHeld.isPicked)
 
 func loadGame():
 	var content = load_file()

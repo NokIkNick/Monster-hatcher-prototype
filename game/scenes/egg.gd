@@ -8,12 +8,14 @@ class_name Egg
 @onready var hatching = false
 @onready var game = $".."
 @onready var timer_text = $Panel/TimerText
+@onready var hatch_btn: Button = $Panel/HatchBtn
 
 
 const PET = preload("res://scenes/pet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hatch_btn.pressed.connect(self.hatch)
 	var rng = RandomNumberGenerator.new()
 	var rarity_number = rng.randi_range(1, EggStats.Rarity.size() -1)
 	if (stats):
@@ -33,7 +35,10 @@ func _process(delta):
 		print(hatchtimer.time_left)
 	
 	if(hatchtimer.is_stopped() && hatching && !isHatched):
-		hatch()
+		#Show hatch button:
+		hatch_btn.show()
+		timer_text.text = "Hatch"
+		#hatch()
 		
 
 func calculateStats(rarity_nr):
@@ -57,4 +62,3 @@ func format_timer_to_two_digits(time: float) -> String:
 	var time_int = int(time)
 	var formatted_time = "%02d" % time_int
 	return formatted_time
-

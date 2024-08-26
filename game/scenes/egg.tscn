@@ -29,6 +29,12 @@ offset_top = -69.0
 offset_right = 41.0
 offset_bottom = -47.0
 
+[node name="HatchBtn" type="Button" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_right = 82.0
+offset_bottom = 22.0
+
 [node name="TimerText" type="Label" parent="Panel"]
 layout_mode = 1
 offset_right = 82.0
